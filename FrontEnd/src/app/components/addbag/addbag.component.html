@@ -1,0 +1,54 @@
+<app-adminheader *ngIf="!isLoggedIn"></app-adminheader>
+ <app-adminloggedinheader *ngIf="isLoggedIn == true"></app-adminloggedinheader>
+<div class="bg">
+    <div class="container">
+        
+        <form class="dim" #AddBagForm="ngForm" (ngSubmit)="submitForm(AddBagForm)" novalidate>
+            <h2 class="h2">Crear Maleta</h2><br>
+            
+            <div class="row">
+                <label for="id" class="col-sm-3 control-label">N° de maleta</label>
+                <div class="col-sm-9" id="id" ><input type ="text" (click)="onclickfn()" name="id" class="form-control" placeholder="Numero de maleta" pattern="^[0-9]*$" required minlength="9" maxlength="9" #id="ngModel"
+                    [(ngModel)]="addbag.id">
+                </div>
+            </div><br>
+
+            <div class="row">
+                <label for="weigth" class="col-sm-3 control-label">Peso</label>
+                <div class="col-sm-9" id="weigth" ><input type ="text" (click)="onclickfn()" name="weigth" class="form-control" placeholder="Peso" pattern="^[0-9]*$" required minlength="4" maxlength="4">
+                </div>
+            </div><br>
+
+            <div class="row">
+                <label for="color" class="col-sm-3 control-label">Color</label>
+                <div class="col-sm-9" id="color" ><input type ="text" (click)="onclickfn()" name="color" class="form-control" placeholder="Color de la maleta" #name="ngModel"
+                    [(ngModel)]="addbag.color">
+                </div>
+            </div><br>
+
+            <div class="row">
+                <label for="type" class="col-sm-3 control-label">Tipo</label>
+                <div class="col-sm-9" id="type" ><input type ="text" (click)="onclickfn()" name="type" class="form-control" placeholder="Tipo de la maleta" #name="ngModel"
+                    [(ngModel)]="addbag.type">
+                </div>
+            </div><br>
+
+            <div class="row">
+                <label for="id_user" class="col-sm-3 control-label">ID del usuario</label>
+                <div class="col-sm-9" id="id_user" ><input type ="text" (click)="onclickfn()" name="id_user" class="form-control" placeholder="ID del usuario" pattern="^[0-9]*$" required minlength="9" maxlength="9">
+                </div>
+            </div><br>
+
+            <div>
+                <div>
+                    <button class="bt add" type="submit" [disabled]="!AddBagForm.valid" [ngStyle]="{'cursor': (!AddBagForm.valid? 'not-allowed':'pointer')}" >Añadir Maleta</button>
+                </div>
+                <div>
+                    <button class="bt" onclick="window.location='http://localhost:4200/ViewAllFlights';">Cancel</button>
+                </div>
+            </div>  
+
+        </form>
+    </div>
+</div>
+<app-adminfooter></app-adminfooter>

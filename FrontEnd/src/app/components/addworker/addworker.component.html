@@ -1,0 +1,66 @@
+<app-adminheader *ngIf="!isLoggedIn"></app-adminheader>
+<app-adminloggedinheader *ngIf="isLoggedIn == true"></app-adminloggedinheader>
+<div class="bg">
+    <div class="container">
+        
+        <form class="dim" #AddWorkerForm="ngForm" (ngSubmit)="submitForm(AddWorkerForm)" novalidate>
+            <h2 class="h2">Registrar Trabajador</h2><br>
+            <div class = "check" *ngIf="!flightcheck">
+                <span class="msg">&#10687; Numero de trabajador existente </span>
+            </div>
+            <div class="form-group">
+
+                <div class="row">
+                    <label for="name" class="col-sm-3 control-label">Nombre</label>
+                    <div class="col-sm-9" id="name" ><input type ="text" (click)="onclickfn()" name="name" class="form-control" placeholder="Nombre del trabajador" #name="ngModel"
+                        [(ngModel)]="addworker.name">
+                    </div>
+                </div><br>
+
+                <div class="row">
+                    <label for="lastname" class="col-sm-3 control-label">Apellidos</label>
+                    <div class="col-sm-9" id="lastname" ><input type ="text" (click)="onclickfn()" name="lastname" class="form-control" placeholder="Apellidos del trabajador" #lastname="ngModel"
+                        [(ngModel)]="addworker.lastname">
+                    </div>
+                </div><br>
+
+                <div class="row">
+                    <label for="id" class="col-sm-3 control-label">N° de cedula</label>
+                    <div class="col-sm-9" id="id" ><input type ="text" (click)="onclickfn()" name="id" class="form-control" placeholder="Cedula" pattern="^[0-9]*$" required minlength="9" maxlength="9" #id="ngModel"
+                        [(ngModel)]="addworker.id">
+                    </div>
+                </div><br>
+
+                <div class="row">
+                    <label for="password" class="col-sm-3 control-label">Contraseña</label>
+                    <div class="col-sm-9" id="password" ><input type ="text" (click)="onclickfn()" name="password" class="form-control" placeholder="Contraseña del usuario" #password="ngModel"
+                        [(ngModel)]="addworker.password">
+                    </div>
+                </div><br>
+                
+                <div class="row">
+                    <label for="rol" class="col-sm-3 control-label">Rol</label>
+                    <div class="col-sm-9 " id="rol">
+                        <select type ="type" class="form-control">
+                            <option value="Embarcador">Embarcador</option>
+                            <option value="Escaner">Escaner</option>
+                            <option value="Administrador">Administrador</option>
+                            <option value="Recepcionista">Recepcionista</option>
+                        </select>
+                    </div>
+                </div><br>
+
+                <br>
+                <div>
+                    <div>
+                        <button class="bt add" type="submit">Añadir trabajador</button>
+                    </div>
+                    <div>
+                        <button class="bt" onclick="window.location='http://localhost:4200/ViewAllFlights';">Cancel</button>
+                    </div>
+                    </div>  
+                </div>
+        </form>
+    </div>
+</div>
+<app-adminfooter></app-adminfooter>

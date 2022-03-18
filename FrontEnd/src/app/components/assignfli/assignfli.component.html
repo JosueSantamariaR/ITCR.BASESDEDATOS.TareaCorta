@@ -1,0 +1,28 @@
+<app-adminheader *ngIf="!isLoggedIn"></app-adminheader>
+ <app-adminloggedinheader *ngIf="isLoggedIn == true"></app-adminloggedinheader>
+<div class="bg">
+    <div class="container">
+        
+        <form class="dim" #AddFlightForm="ngForm" (ngSubmit)="submitForm(AddFlightForm)" novalidate>
+            <h2 class="h2">Asignar Avion</h2><br>
+            <h1 class="h1">Sección en proceso, consulte más tarde</h1><br>
+
+                <br>
+                <div>
+                    <div>
+                        <button class="bt add" type="submit">Asigar Avion</button>
+                    </div>
+                    <div>
+                        <button class="bt" onclick="window.location='http://localhost:4200/ViewAllFlights';">Cancel</button>
+                    </div>
+                </div>
+        </form>
+    </div>
+</div>
+<div class="bg">
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
+<app-adminfooter></app-adminfooter>
