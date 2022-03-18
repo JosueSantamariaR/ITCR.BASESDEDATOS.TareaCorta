@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TABAS_Mobile.Views.NoPhotosPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:button="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+    xmlns:core="clr-namespace:Syncfusion.XForms.Core;assembly=Syncfusion.Core.XForms"
+    xmlns:svg="clr-namespace:TABAS_Mobile.Controls"
+    BackgroundColor="{StaticResource Gray-White}"
+    NavigationPage.HasNavigationBar="False">
+
+    <StackLayout>
+        <Image x:Name="Miimagen"></Image>
+        <Button Text="Scann" Clicked="Button_Clicked_1"></Button>
+        <Button Text="Selecciona imagen" Clicked="Button_Clicked"></Button>
+    </StackLayout>
+
+       
+
+</ContentPage>
