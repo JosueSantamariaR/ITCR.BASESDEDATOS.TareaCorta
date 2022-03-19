@@ -6,10 +6,10 @@ using Xamarin.Forms.Internals;
 namespace TABAS_Mobile.ViewModels
 {
     /// <summary>
-    /// ViewModel for login with social icon page.
+    /// ViewModel for login page.
     /// </summary>
     [Preserve(AllMembers = true)]
-    public class LoginWithSocialIconViewModel : LoginViewModel
+    public class LoginPageViewModel : LoginViewModel
     {
         #region Fields
 
@@ -20,18 +20,16 @@ namespace TABAS_Mobile.ViewModels
         #region Constructor
 
         /// <summary>
-        /// Initializes a new instance for the <see cref="LoginWithSocialIconViewModel" /> class.
+        /// Initializes a new instance for the <see cref="LoginPageViewModel" /> class.
         /// </summary>
-        public LoginWithSocialIconViewModel()
+        public LoginPageViewModel()
         {
             this.InitializeProperties();
             this.AddValidationRules();
             this.LoginCommand = new Command(this.LoginClicked);
             this.SignUpCommand = new Command(this.SignUpClicked);
             this.ForgotPasswordCommand = new Command(this.ForgotPasswordClicked);
-            this.FaceBookLoginCommand = new Command(this.FaceBookClicked);
-            this.TwitterLoginCommand = new Command(this.TwitterClicked);
-            this.GmailLoginCommand = new Command(this.GmailClicked);
+            this.SocialMediaLoginCommand = new Command(this.SocialLoggedIn);
         }
 
         #endregion
@@ -79,33 +77,23 @@ namespace TABAS_Mobile.ViewModels
         public Command ForgotPasswordCommand { get; set; }
 
         /// <summary>
-        /// Gets or sets the command that is executed when the facebook login button is clicked.
+        /// Gets or sets the command that is executed when the social media login button is clicked.
         /// </summary>
-        public Command FaceBookLoginCommand { get; set; }
-
-        /// <summary>
-        /// Gets or sets the command that is executed when the twitter login button is clicked.
-        /// </summary>
-        public Command TwitterLoginCommand { get; set; }
-
-        /// <summary>
-        /// Gets or sets the command that is executed when the gmail login button is clicked.
-        /// </summary>
-        public Command GmailLoginCommand { get; set; }
+        public Command SocialMediaLoginCommand { get; set; }
 
         #endregion
 
         #region methods
 
         /// <summary>
-        /// check the validation
+        /// Check the password is null or empty
         /// </summary>
-        /// <returns>returns bool value</returns>
+        /// <returns>Returns the fields are valid or not</returns>
         public bool AreFieldsValid()
         {
             //bool isEmailValid = this.Email.Validate();
-            bool isPassword = this.Password.Validate();
-            return  isPassword;
+            bool isPasswordValid = this.Password.Validate();
+            return isPasswordValid;
         }
 
         /// <summary>
@@ -117,7 +105,7 @@ namespace TABAS_Mobile.ViewModels
         }
 
         /// <summary>
-        /// Validation rules for password
+        /// Validation rule for password
         /// </summary>
         private void AddValidationRules()
         {
@@ -132,7 +120,7 @@ namespace TABAS_Mobile.ViewModels
         {
             if (this.AreFieldsValid())
             {
-                // Do something
+                // Do Something
             }
         }
 
@@ -142,7 +130,7 @@ namespace TABAS_Mobile.ViewModels
         /// <param name="obj">The Object</param>
         private void SignUpClicked(object obj)
         {
-            // Do something
+            // Do Something
         }
 
         /// <summary>
@@ -155,28 +143,10 @@ namespace TABAS_Mobile.ViewModels
         }
 
         /// <summary>
-        /// Invoked when facebook login button is clicked.
+        /// Invoked when social media login button is clicked.
         /// </summary>
         /// <param name="obj">The Object</param>
-        private void FaceBookClicked(object obj)
-        {
-            // Do something
-        }
-
-        /// <summary>
-        /// Invoked when twitter login button is clicked.
-        /// </summary>
-        /// <param name="obj">The Object</param>
-        private void TwitterClicked(object obj)
-        {
-            // Do something
-        }
-
-        /// <summary>
-        /// Invoked when gmail login button is clicked.
-        /// </summary>
-        /// <param name="obj">The Object</param>
-        private void GmailClicked(object obj)
+        private void SocialLoggedIn(object obj)
         {
             // Do something
         }
