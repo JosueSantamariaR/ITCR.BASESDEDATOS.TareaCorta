@@ -4,16 +4,16 @@ using Xamarin.Forms.Xaml;
 namespace TABAS_Mobile.Views
 {
     /// <summary>
-    /// Page to login with user name and password
+    /// View used to show the email entry with validation status.
     /// </summary>
     [Preserve(AllMembers = true)]
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LoginwithSocialIconPage
+    public partial class EmailEntry
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="LoginwithSocialIconPage" /> class.
+        /// Initializes a new instance of the <see cref="EmailEntry" /> class.
         /// </summary>
-        public LoginwithSocialIconPage()
+        public EmailEntry()
         {
             this.InitializeComponent();
         }
