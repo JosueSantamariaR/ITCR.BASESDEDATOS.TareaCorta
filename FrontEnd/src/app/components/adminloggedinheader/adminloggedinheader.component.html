@@ -1,0 +1,16 @@
+
+    <header>
+        <div class="nav-items">
+            <ul>
+                <li><a [routerLink]="['/AddWorker']">Registrar Trabajador</a></li>
+                <li><a [routerLink]="['/AddUser']">Registrar Usuario</a></li>
+                <li><a [routerLink]="['/AddBag']">Crear Maleta</a></li>
+                <li><a [routerLink]="['/AddBagCart']">Crear BagCart</a></li>
+                <li><a [routerLink]="['/AssignFli']">Asignar Avion</a></li>
+                <li><a [routerLink]="['/AssignBagCart']">Asignar BagCart</a></li>
+                <li><a [routerLink]="['/CloseBagCart']">Cerrar BagCart</a></li>
+                <li><a [routerLink]="['/PDFReports']">Reportes PDF</a></li>
+                <li><a (click) = "handlelogout()">Cerrar Sesion</a></li>
+            </ul>
+        </div>
+    </header> 

@@ -1,0 +1,73 @@
+{
+
+    "users": [
+        {
+            "telephone": 1234,
+            "password": "abc123",
+            "id": 1111,
+            "name": "Jose"
+        },
+        {
+            "telephone": 5678,
+            "password": "def456",
+            "id": 2222,
+            "name": "Pablo"
+        }
+    ],
+
+    "workers": [
+        {
+            "password": "abc123",
+            "id": 2222,
+            "name": "Adrian",
+            "LName": "Rodrigues",
+            "role":  "Scanner"
+        }
+    
+    ],
+
+    "bagcarts": [
+
+        {
+            "id": 1,
+            "model": "Chino",
+            "bags": 12,
+            "brand": "TecFlights",
+            "stamp": "abc1234"
+        }
+
+    ],
+
+    "bag": [
+        {
+            "number": 1122,
+            "cost": 12000,
+            "state": false,
+            "colour": "red",
+            "type": "tipo",
+            "user": 1111
+        }
+
+    ],
+
+    "planes": [
+        {
+            "id":  2233,
+            "type": "TecAirlines",
+            "bags": 24,
+            "capacity":  78
+        }
+    
+    ],
+
+    "flights": [
+        {
+            "id": 1212,
+            "bags": 32,
+            "plane": 2233,
+
+        }
+    
+    ]
+
+}
