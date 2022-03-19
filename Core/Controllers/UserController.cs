@@ -35,7 +35,6 @@ namespace Core.Controllers
 
             foreach (var user in jsonFile["users"])
             {
-                Console.WriteLine(user["id"]);
                 if (user["id"] == id) {
                     //result = 1;
                     return user.ToString();
