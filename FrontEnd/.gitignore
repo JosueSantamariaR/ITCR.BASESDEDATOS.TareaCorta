@@ -49,3 +49,6 @@ fetch.service.ts
 json.component.css 
 json.component.html 
 json.component.ts
+
+# Dependecies
+/node_modules

@@ -105,70 +105,12 @@ export class PdfreportsComponent implements OnInit {
 
     var XML = this.generateXML();
     XML.click();
-
     
-    /*
-    console.log("PRUEBA");
-    var InputJSON = "{College:{entry: [{ Student : 'shiv', Roll_No: 12},{ Student : 'yadav',Roll_No: 56}]}}";
-  
-    var output = eval("OBJtoXML("+InputJSON+");")
-    
-    //JSON to XML
-    function OBJtoXML(obj) {
-      var xml = '';
-      for (var prop in obj) {
-        xml += obj[prop] instanceof Array ? '' : "<" + prop + ">";
-        if (obj[prop] instanceof Array) {
-          for (var array in obj[prop]) {
-            xml += "<" + prop + ">";
-            xml += OBJtoXML(new Object(obj[prop][array]));
-            xml += "</" + prop + ">";
-          }
-        } else if (typeof obj[prop] == "object") {
-          xml += OBJtoXML(new Object(obj[prop]));
-        } else {
-          xml += obj[prop];
-        }
-        xml += obj[prop] instanceof Array ? '' : "</" + prop + ">";
-      }
-      var xml = xml.replace(/<\/?[0-9]{1,}>/g, '');
-      return xml
-    }
-
-    console.log(output);
-
-    const xmlStr = '<a id="a"><b id="b">hey!</b></a>';
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(output, "application/xml");
-    console.log(doc);
-    */
-
   }
 
  
   submitForm(AddFlightForm) {
-    /*
-  for(let i=0;i<this.flights.length;i++)
-  {
-    if(this.flights[i].flight_number==AddFlightForm.value.flight_number)
-      {
-        this.flightcheck=false;
-        window.scrollTo(0,1);
-      }
-  }
 
-  console.log(this.flightcheck);
-    
-    if(this.flightcheck==true)
-    {
-      Swal.fire('Adding Flight');    Swal.showLoading();
-      this.service.addflight(AddFlightForm.value).subscribe((data)=>
-      console.log(data,"Flight Added")
-      )
-      Swal.close();
-    this.router.navigate([`${'ViewAllFlights'}`]);
-    }
-   */
    }
    
 }

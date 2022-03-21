@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { Bag } from 'src/app/models/bag';
 import { AdminadduserServices } from 'src/app/services/adminaddbag.service';
 import Swal from 'sweetalert2';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 
 @Component({
@@ -48,31 +50,58 @@ export class AddbagComponent implements OnInit {
   }
   
   
-  
- 
-  submitForm(AddFlightForm) {
+  generateXML(AddFlightForm){
     
-  /*for(let i=0;i<this.flights.length;i++)
+    var XML = new String();
+    
+    XML = "<?xml version='1.0' encoding='utf-8'?>\n";
+    
+    XML = XML + "<root>\n";
+   
+    XML = XML + "<planes>\n";
+    XML = XML + "\t<id>2223</id>\n";
+    XML = XML + "\t<type>TecAirlines</type>\n";
+    XML = XML + "\t<capacity>78</capacity>\n";
+    XML = XML + "\t<bags>24</bags>\n";
+    XML = XML + "</planes>\n";
+  
+    XML = XML + "<bagcarts>\n";
+    XML = XML + "\t<id>1</id>\n";
+    XML = XML + "\t<bags>12</bags>\n";
+    XML = XML + "</bagcarts>\n";
+   
+    XML = XML + "</root>";
+
+    //Save XML file
+    var filename = "file.xml";
+    var pom = document.createElement('a');
+    var bb = new Blob([XML.toString()], {type: 'text/plain'});
+
+    pom.setAttribute('href', window.URL.createObjectURL(bb));
+    pom.setAttribute('download', filename);
+
+    pom.dataset.downloadurl = ['text/plain', pom.download, pom.href].join(':');
+    pom.draggable = true; 
+    pom.classList.add('dragout');
+
+    pom.click();
+  }
+ 
+  exportAsPDF(AddBagForm)
   {
-    if(this.flights[i].flight_number==AddFlightForm.value.flight_number)
-      {
-        this.flightcheck=false;
-        window.scrollTo(0,1);
-      }
+    let data = document.getElementById('AddBagForm');  
+    html2canvas(data).then(canvas => {
+    const contentDataURL = canvas.toDataURL('image/png')  // 'image/jpeg' for lower quality output.
+    let pdf = new jsPDF('l', 'cm', 'a4'); //Generates PDF in landscape mode
+    // let pdf = new jspdf('p', 'cm', 'a4'); Generates PDF in portrait mode
+    pdf.addImage(contentDataURL, 'PNG', 0, 0, 29.7, 21.0);  
+    pdf.save('Filename.pdf');
+    return pdf;  
+    });
   }
 
-  console.log(this.flightcheck);
-    
-    if(this.flightcheck==true)
-    {
-      Swal.fire('Adding Flight');    Swal.showLoading();
-      this.service.addflight(AddFlightForm.value).subscribe((data)=>
-      console.log(data,"Flight Added")
-      )
-      Swal.close();
-    this.router.navigate([`${'ViewAllFlights'}`]);
-    }*/
-   
-   }
-   
+  submitForm(AddBagForm) {
+    this.generateXML(AddBagForm);
+    this.exportAsPDF(AddBagForm);
+  }
 }
