@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+
 namespace Core.Controllers
 {
     [Route("[controller]")]
@@ -28,44 +29,20 @@ namespace Core.Controllers
         }
         */
 
-        // POST: api/Worker
+        // POST: /Worker
         [HttpPost]
         public void Post([FromBody] Worker value)
         {
             string filename = @"./database.json";
 
-            JObject jsonFile = JObject.Parse(filename);
+            DBdata data = JsonConvert.DeserializeObject<DBdata>(reader.File.ReadAllText(filename));
 
-            List<Worker> workers = new List<Worker>();
+            data.workers.Add(value);
 
-            foreach (var worker in jsonFile["workers"])
-            {
-                workers.Add(new Worker() {password = worker["password"].ToString() ,
-                    id = (int) worker["id"],
-                    name = worker["name"].ToString(),
-                    LName = worker["LName"].ToString(),
-                    role = worker["role"].ToString()
-                }
-                );
-            }
-
-            JArray workersJson = (JArray)jsonFile["workers"];
+            reader.File.WriteAllText(filename, JsonConvert.SerializeObject(data));
 
             
 
-            //string json = JsonConvert.SerializeObject(objDese);
-            
-
-            
-
-            //Console.WriteLine(json);
-
-
-            //jsonFile["workers"] = json;
-
-            //reader.File.WriteAllText(filename, jsonObj.ToString());
-
-            Console.WriteLine(jsonFile);
         }
 
         /*

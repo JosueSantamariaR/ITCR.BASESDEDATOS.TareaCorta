@@ -1,9 +1,11 @@
 ﻿using System;
+using reader = System.IO;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Core.Controllers
 {
@@ -11,7 +13,7 @@ namespace Core.Controllers
     [ApiController]
     public class BagController : ControllerBase
     {
-        // GET: api/Bag
+        // GET: /Bag
         [HttpGet]
         public IEnumerable<string> GetBag()
         {
@@ -25,10 +27,17 @@ namespace Core.Controllers
             return "value";
         }
 
-        // POST: api/Bag
+        // POST: /Bag
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Bag bag)
         {
+            string filename = @"./database.json";
+
+            DBdata data = JsonConvert.DeserializeObject<DBdata>(reader.File.ReadAllText(filename));
+
+            data.bags.Add(bag);
+
+            reader.File.WriteAllText(filename, JsonConvert.SerializeObject(data));
         }
 
         // PUT: api/Bag/5
