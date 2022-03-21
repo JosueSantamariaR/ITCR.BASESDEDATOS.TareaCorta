@@ -8,7 +8,6 @@
 /bazel-out
 
 # dependencies
-/node_modules
 
 # profiling files
 chrome-profiler-events*.json
@@ -50,4 +49,3 @@ fetch.service.ts
 json.component.css 
 json.component.html 
 json.component.ts
-src/environments/environment.ts
