@@ -51,39 +51,29 @@ export class AddbagComponent implements OnInit {
   
   
   generateXML(AddFlightForm){
-    
     var XML = new String();
-    
     XML = "<?xml version='1.0' encoding='utf-8'?>\n";
-    
     XML = XML + "<root>\n";
-   
     XML = XML + "<planes>\n";
     XML = XML + "\t<id>2223</id>\n";
     XML = XML + "\t<type>TecAirlines</type>\n";
     XML = XML + "\t<capacity>78</capacity>\n";
     XML = XML + "\t<bags>24</bags>\n";
     XML = XML + "</planes>\n";
-  
     XML = XML + "<bagcarts>\n";
     XML = XML + "\t<id>1</id>\n";
     XML = XML + "\t<bags>12</bags>\n";
     XML = XML + "</bagcarts>\n";
-   
     XML = XML + "</root>";
-
     //Save XML file
     var filename = "file.xml";
     var pom = document.createElement('a');
     var bb = new Blob([XML.toString()], {type: 'text/plain'});
-
     pom.setAttribute('href', window.URL.createObjectURL(bb));
     pom.setAttribute('download', filename);
-
     pom.dataset.downloadurl = ['text/plain', pom.download, pom.href].join(':');
     pom.draggable = true; 
     pom.classList.add('dragout');
-
     pom.click();
   }
  
@@ -96,12 +86,12 @@ export class AddbagComponent implements OnInit {
     // let pdf = new jspdf('p', 'cm', 'a4'); Generates PDF in portrait mode
     pdf.addImage(contentDataURL, 'PNG', 0, 0, 29.7, 21.0);  
     pdf.save('Filename.pdf');
-    return pdf;  
     });
   }
 
   submitForm(AddBagForm) {
     this.generateXML(AddBagForm);
     this.exportAsPDF(AddBagForm);
+    this.service.addbag(this.addbag);
   }
 }

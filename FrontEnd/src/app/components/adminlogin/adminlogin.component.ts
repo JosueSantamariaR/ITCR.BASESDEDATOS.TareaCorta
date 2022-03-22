@@ -45,9 +45,9 @@ export class AdminloginComponent implements OnInit {
 
     this.timer = true;
     this.verify=true;
-    this.router.navigate([`${'ViewAllFlights'}`]);
-    sessionStorage.setItem('admin',AdminLoginForm.value.email);
-    /*//let response = await this.loginservice.login(AdminLoginForm.value)
+    //this.router.navigate([`${'ViewAllFlights'}`]);
+    //sessionStorage.setItem('admin',AdminLoginForm.value.email);
+    //let response = await this.loginservice.login(AdminLoginForm.value)
     if(this.users != null){
       if(this.users.password == AdminLoginForm.value.password)
         {
@@ -65,6 +65,6 @@ export class AdminloginComponent implements OnInit {
     }else
     {
       this.verify=false;
-    }*/
+    }
   }
 }
